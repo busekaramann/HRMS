@@ -14,15 +14,12 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Table(name = "job_adverts")
-@Where(clause = "status is CONFIRMED")
+//@Where(clause = "status is CONFIRMED")
 public class JobAdvert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-
-    @Column(name = "job_title_id")
-    private int jobTitleId;
 
     @Column(name = "name")
     private String name;
@@ -43,14 +40,15 @@ public class JobAdvert {
     private Date deadline;
 
     @Column(name = "status")
-    private String status = JobAdvertStatusEnum.PENDING.getStatus();
+    @Enumerated(value = EnumType.STRING)
+    private JobAdvertStatusEnum status = JobAdvertStatusEnum.PENDING;
 
     @Column(name = "photo")
     private String photo;
 
     @Column(name = "created_date")
     @Temporal(TemporalType.DATE)
-    private Date createdDate;
+    private Date createdDate = new Date();
 
     @Column(name = "publish_date")
     private Date publishDate;
@@ -60,6 +58,10 @@ public class JobAdvert {
     @ManyToOne()
     @JoinColumn(name = "city_id")
     private City city;
+
+    @ManyToOne()
+    @JoinColumn(name = "job_title_id")
+    private JobTitle jobTitle;
 
     @ManyToOne()
     @JoinColumn(name = "employer_id")

@@ -16,11 +16,11 @@ public class AddJobAdvertRequest {
     @NotNull(message = " İşveren alanı boş bırakılamaz")
     private int employerId;
 
+    @NotNull(message = "Şehir alanı boş bırakılamaz")
+    private int cityId;
+
     @NotBlank(message = "İsim alanı boş bırakılamaz")
     private String name;
-
-    @NotNull(message = "Şehir alanı boş bırakılamaz")
-    private City city;
 
     @NotBlank(message = "Açıklama alanı boş bırakılamaz")
     private String description;
@@ -36,8 +36,4 @@ public class AddJobAdvertRequest {
     private Date deadline;
 
     private String photo;
-
-    @NotNull(message = "Eklenme tarihi boş bırakılamaz")
-    private Date created_date;
-
 }

@@ -33,6 +33,7 @@ public class Employer {
     private String phoneNumber;
 
     @Column(name="status")
+    @Enumerated(value = EnumType.STRING)
     private UserStatusEnum status = UserStatusEnum.PENDING;
 
     @Column(name = "is_verified_by_admin")
