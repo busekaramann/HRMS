@@ -6,18 +6,18 @@ import com.buse.HRMS.core.utilities.results.*;
 import com.buse.HRMS.dataAccsess.abstracts.JobTitleDao;
 import com.buse.HRMS.entities.concretes.JobTitle;
 import com.buse.HRMS.entities.requests.AddJobTitleRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class JobTitleServiceImpl implements JobTitleService {
 
-    private JobTitleDao jobTitleDao;
+    private final JobTitleDao jobTitleDao;
 
-    public JobTitleServiceImpl(JobTitleDao jobTitleDao) {
-        this.jobTitleDao = jobTitleDao;
-    }
+
 
     @Override
     public DataResult<Boolean> add(AddJobTitleRequest addJobTitleRequest) {

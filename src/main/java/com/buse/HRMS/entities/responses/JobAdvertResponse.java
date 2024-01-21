@@ -10,6 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class JobAdvertResponse {
+    private int id;
     private String companyName;
     private String name;
     private String description;

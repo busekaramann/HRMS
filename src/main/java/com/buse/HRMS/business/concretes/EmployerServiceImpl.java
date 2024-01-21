@@ -7,18 +7,18 @@ import com.buse.HRMS.core.utilities.results.SuccessDataResult;
 import com.buse.HRMS.core.utilities.results.SuccessResult;
 import com.buse.HRMS.dataAccsess.abstracts.EmployerDao;
 import com.buse.HRMS.entities.concretes.Employer;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EmployerServiceImpl implements EmployerService {
 
-    private EmployerDao employerDao;
+    private final EmployerDao employerDao;
 
-    public EmployerServiceImpl(EmployerDao employerDao) {
-        this.employerDao = employerDao;
-    }
+
 
     @Override
     public Result add(Employer employer) {

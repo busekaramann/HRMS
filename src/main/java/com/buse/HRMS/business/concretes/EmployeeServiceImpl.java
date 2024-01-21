@@ -4,17 +4,16 @@ import com.buse.HRMS.business.abstracts.EmployeeService;
 import com.buse.HRMS.core.utilities.results.*;
 import com.buse.HRMS.dataAccsess.abstracts.EmployeeDao;
 import com.buse.HRMS.entities.concretes.Employee;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeDao employeeDao;
+    private final EmployeeDao employeeDao;
 
-    public EmployeeServiceImpl(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
-    }
 
     @Override
     public Result add(Employee employee) {
